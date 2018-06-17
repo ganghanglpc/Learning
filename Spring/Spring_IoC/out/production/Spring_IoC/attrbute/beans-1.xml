@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context.xsd
+         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+   ">
+    <bean id="car" class="attrbute.Car">
+        <property name="brand" value="红旗"/>
+    </bean>
+
+    <!--引用上面定义的Bean，实现依赖注入 -->
+    <bean id="boss" class="attrbute.Boss">
+        <property name="car">
+            <ref bean="car"/>
+        </property>
+    </bean>
+
+    <!-- 内部bean 只能被自己使用-->
+    <bean id="boss1" class="attrbute.Boss">
+        <property name="car">
+            <bean class="attrbute.Car">
+                <property name="maxSpeed" value="200"/>
+                <property name="price" value="2000.00"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- 属性为集合类型时的 注入-->
+    <bean id="boss2" class="attrbute.Boss">
+        <property name="favorites">
+            <list>
+                <value>看车</value>
+                <value>高尔夫</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="boss3" class="attrbute.Boss">
+        <property name="map">
+            <map>
+                <entry>
+                    <key><value>AM</value></key>
+                    <value>会见客户</value>
+                </entry>
+                <entry>
+                    <key><value>PM</value></key>
+                    <value>休息</value>
+                </entry>
+            </map>
+        </property>
+    </bean>
+</beans>

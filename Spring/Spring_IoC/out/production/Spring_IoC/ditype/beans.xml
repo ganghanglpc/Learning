@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context.xsd
+         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+   ">
+    <!--属性注入 -->
+   <bean id="car" class="ditype.Car">
+       <property name="brand"><value>红旗CA72</value></property>
+       <property name="maxSpeed"><value>200</value></property>
+       <property name="price"><value>20000.00</value></property>
+   </bean>
+
+    <!--构造函数注入 -->
+    <bean id="car1" class="ditype.Car">
+        <constructor-arg type="java.lang.String"><value>红旗CA72</value></constructor-arg>
+        <constructor-arg type="int"><value>200</value></constructor-arg>
+        <constructor-arg type="double"><value>20000.00</value></constructor-arg>
+    </bean>
+
+    <!-- 按索引匹配入参 -->
+    <bean id="car2" class="ditype.Car">
+        <constructor-arg index="0"><value>红旗CA72</value></constructor-arg>
+        <constructor-arg index="1"><value>中国一代</value></constructor-arg>
+        <constructor-arg index="2"><value>200</value></constructor-arg>
+        <constructor-arg index="3"><value>20000.00</value></constructor-arg>
+    </bean>
+
+    <!-- 联合匹配入参 -->
+    <bean id="car3" class="ditype.Car">
+        <constructor-arg type="java.lang.String" index="0"><value>红旗CA72</value></constructor-arg>
+        <constructor-arg type="java.lang.String" index="1"><value>中国一代</value></constructor-arg>
+        <constructor-arg type="int" index="2"><value>2000</value></constructor-arg>
+    </bean>
+
+    <bean id="office" class="ditype.Office"/>
+
+    <bean id="boss" class="ditype.Boss">
+        <constructor-arg>
+            <value>老李</value>
+        </constructor-arg>
+        <constructor-arg>
+            <ref bean="car"/>
+        </constructor-arg>
+        <constructor-arg>
+            <ref bean="office"/>
+        </constructor-arg>
+    </bean>
+
+
+    <!-- 非静态工厂方法配置 -->
+    <bean id="carFactory" class="ditype.CarFactory"/>
+
+    <bean id="car4" factory-bean="carFactory" factory-method="createHongQiCar"/>
+
+
+    <!-- 静态工厂类 -->
+    <bean id="car5" class="ditype.CarFactory" factory-method="createCar"/>
+</beans>

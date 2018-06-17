@@ -1,0 +1,21 @@
+<component name="libraryTable">
+  <library name="log4j-1.2.17">
+    <CLASSES>
+      <root url="jar://C:/开发库/log4j-1.2.17.zip!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://C:/开发库/log4j-1.2.17.zip!/apache-log4j-1.2.17/site/apidocs" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://C:/开发库/log4j-1.2.17.zip!/apache-log4j-1.2.17" />
+      <root url="jar://C:/开发库/log4j-1.2.17.zip!/apache-log4j-1.2.17/contribs/CekiGulcu" />
+      <root url="jar://C:/开发库/log4j-1.2.17.zip!/apache-log4j-1.2.17/contribs/Jamie Tsao" />
+      <root url="jar://C:/开发库/log4j-1.2.17.zip!/apache-log4j-1.2.17/contribs/JimMoore" />
+      <root url="jar://C:/开发库/log4j-1.2.17.zip!/apache-log4j-1.2.17/contribs/ThomasFenner" />
+      <root url="jar://C:/开发库/log4j-1.2.17.zip!/apache-log4j-1.2.17/src/main/java" />
+      <root url="jar://C:/开发库/log4j-1.2.17.zip!/apache-log4j-1.2.17/src/main/javadoc" />
+      <root url="jar://C:/开发库/log4j-1.2.17.zip!/apache-log4j-1.2.17/src/performance/java" />
+      <root url="jar://C:/开发库/log4j-1.2.17.zip!/apache-log4j-1.2.17/tests/src/java" />
+    </SOURCES>
+  </library>
+</component>

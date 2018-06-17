@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="bao">
+    <CLASSES>
+      <root url="file://C:/开发库/bao" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://C:/开发库/bao" recursive="false" />
+  </library>
+</component>

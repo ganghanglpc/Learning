@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
+
+    <bean id="greetingBefore" class="advice.GreetingBeforeAdvice"/>
+    <bean id="greetingAfter" class="advice.GreetingAfterAdvice"/>
+    <bean id="target" class="advice.NaiveWaiter"/>
+
+    <bean id="greetingInterceptor" class="advice.GreetingInterceptor"/>
+
+    <!-- 指定代理接口，如果是多个，就用list-->
+    <bean id="waiter" class="org.springframework.aop.framework.ProxyFactoryBean"
+          p:proxyInterfaces="advice.Waiter"
+          p:interceptorNames="greetingInterceptor"
+          p:target-ref="target"/>
+
+    <bean id="transactionManager" class="advice.TransactionManager"/>
+    <bean id="forumServiceTarget" class="advice.ForumService"/>
+    <bean id="forumService" class="org.springframework.aop.framework.ProxyFactoryBean"
+          p:interceptorNames="transactionManager"
+          p:target-ref="forumServiceTarget"
+          p:proxyTargetClass="true"
+    />
+
+</beans>

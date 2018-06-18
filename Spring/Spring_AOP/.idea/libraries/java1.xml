@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="java1">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://C:/开发库/cglib-master/cglib/src/main/java" />
+      <root url="file://C:/开发库/cglib-master/cglib/src/test/java" />
+    </SOURCES>
+  </library>
+</component>
